@@ -1,1 +1,1 @@
-# badOS
+# bad-os
