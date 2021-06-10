@@ -22,6 +22,7 @@ stack_top:
 # The kernel entry point.
 .section .text
 .global _start
+.global init_gdt
 .type _start, @function
 _start:
 	movl $stack_top, %esp
@@ -29,6 +30,8 @@ _start:
 	# Call the global constructors.
 	call _init
 
+	call init_gdt
+	
 	# Transfer control to the main kernel.
 	call kernel_main
 
